@@ -11,16 +11,17 @@ RUN apt update \
     libboost-tools-dev libboost-system-dev \
     libssl-dev libgcrypt-dev ninja-build cmake \
     zlib1g-dev libgeoip-dev libboost-chrono-dev \
-    libboost-random-dev qttools5-dev-tools tmux vnstat \
+    libboost-random-dev qttools5-dev-tools tmux vnstat qtbase5-private-dev \
     && apt-get clean \
     && apt --purge autoremove -y
 
 # Build libtorrent
 ADD deps/libtorrent-multiface /libtorrent-multiface
 WORKDIR /libtorrent-multiface
-RUN cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr . \
-    && make -j$(nproc) \
-    && make install
+# RUN cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr . \
+#     && make -j$(nproc) \
+#     && make install
+RUN echo "using gcc ;" >>~/user-config.jam && b2 crypto=openssl cxxstd=14 release && b2 install --prefix=/usr/local
 
 # Build qbittorrent
 ADD deps/qbittorrent-multiface /qbittorrent-multiface
