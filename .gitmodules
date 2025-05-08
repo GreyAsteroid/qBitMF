@@ -1,6 +1,6 @@
 [submodule "images/qbitmf/deps/qbittorrent-multiface"]
 	path = images/qbitmf/deps/qbittorrent-multiface
-	url = https://github.com/sorryusernameisalreadytaken/qBittorrent-multiface
+	url = https://github.com/GreyAsteroid/qBittorrent-multiface
 [submodule "images/qbitmf/deps/libtorrent-multiface"]
 	path = images/qbitmf/deps/libtorrent-multiface
-	url = https://github.com/sorryusernameisalreadytaken/libtorrent-multiface
+	url = https://github.com/GreyAsteroid/libtorrent-multiface
